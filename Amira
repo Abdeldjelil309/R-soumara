@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Soumara - Cuisine Authentique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d4a574;
+            --secondary-color: #8b4513;
+            --dark-color: #2c1810;
+            --light-color: #f8f6f3;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23d4a574" width="1200" height="600"/><circle fill="%23f8f6f3" cx="200" cy="150" r="50" opacity="0.1"/><circle fill="%23f8f6f3" cx="800" cy="400" r="80" opacity="0.1"/><circle fill="%23f8f6f3" cx="1000" cy="200" r="60" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 1rem auto;
+        }
+
+        .menu-card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .about-section {
+            background-color: var(--light-color);
+        }
+
+        .contact-section {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--dark-color);
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .social-icons a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-utensils me-2"></i>Soumara
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À Propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4">Bienvenue chez Soumara</h1>
+                    <p class="lead mb-4">Découvrez une cuisine authentique et savoureuse dans une atmosphère chaleureuse. Nos plats traditionnels sont préparés avec passion et des ingrédients frais.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                        <a href="#menu" class="btn btn-primary btn-lg">Voir le Menu</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Notre Menu</h2>
+            <div class="row g-4">
+                <!-- Entrées -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card menu-card">
+                        <div class="card-header bg-primary text-dark">
+                            <h4 class="mb-0"><i class="fas fa-leaf me-2"></i>Entrées</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Salade Soumara</h6>
+                                        <small class="text-muted">Mélange de légumes frais, vinaigrette maison</small>
+                                    </div>
+                                    <span class="price">6000 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Soupe du Jour</h6>
+                                        <small class="text-muted">Préparée avec des légumes de saison</small>
+                                    </div>
+                                    <span class="price">4000 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Bruschetta Traditionnelle</h6>
+                                        <small class="text-muted">Pain grillé, tomates fraîches, basilic</small>
+                                    </div>
+                                    <span class="price">5000 FCFA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plats Principaux -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card menu-card">
+                        <div class="card-header bg-primary text-dark">
+                            <h4 class="mb-0"><i class="fas fa-drumstick-bite me-2"></i>Plats Principaux</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Tajine d'Agneau</h6>
+                                        <small class="text-muted">Agneau mijoté aux légumes et épices</small>
+                                    </div>
+                                    <span class="price">12000 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Couscous Royal</h6>
+                                        <small class="text-muted">Semoule, légumes, viandes variées</small>
+                                    </div>
+                                    <span class="price">11000 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Poisson Grillé</h6>
+                                        <small class="text-muted">Poisson du jour, légumes de saison</small>
+                                    </div>
+                                    <span class="price">13000 FCFA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="card menu-card">
+                        <div class="card-header bg-primary text-dark">
+                            <h4 class="mb-0"><i class="fas fa-birthday-cake me-2"></i>Desserts</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Baklava Maison</h6>
+                                        <small class="text-muted">Pâtisserie aux noix et miel</small>
+                                    </div>
+                                    <span class="price">3500 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Mousse au Chocolat</h6>
+                                        <small class="text-muted">Chocolat noir, chantilly</small>
+                                    </div>
+                                    <span class="price">3000 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold">Thé à la Menthe</h6>
+                                        <small class="text-muted">Thé traditionnel, pâtisseries</small>
+                                    </div>
+                                    <span class="price">2500 FCFA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">À Propos de Soumara</h2>
+                    <p class="lead">Depuis plus de 20 ans, le restaurant Soumara vous accueille dans un cadre authentique et chaleureux.</p>
+                    <p>Notre chef, passionné par la cuisine traditionnelle, sélectionne chaque jour les meilleurs ingrédients pour vous offrir une expérience culinaire inoubliable. Chaque plat raconte une histoire, chaque saveur vous transporte.</p>
+                    <div class="row mt-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-award text-primary fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">Qualité Premium</h6>
+                                    <small class="text-muted">Ingrédients frais et locaux</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-heart text-primary fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">Fait avec Amour</h6>
+                                    <small class="text-muted">Recettes traditionnelles</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <svg width="400" height="300" viewBox="0 0 400 300" class="img-fluid">
+                            <rect fill="#d4a574" width="400" height="300" rx="15"/>
+                            <rect fill="#8b4513" x="50" y="50" width="300" height="200" rx="10"/>
+                            <circle fill="#f8f6f3" cx="200" cy="120" r="30"/>
+                            <rect fill="#f8f6f3" x="120" y="180" width="160" height="40" rx="5"/>
+                            <circle fill="#d4a574" cx="150" cy="200" r="8"/>
+                            <circle fill="#d4a574" cx="200" cy="200" r="8"/>
+                            <circle fill="#d4a574" cx="250" cy="200" r="8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <h2 class="section-title text-white">Contactez-Nous</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="row g-4">
+                        <div class="col-md-4 text-center">
+                            <i class="fas fa-map-marker-alt fs-1 text-primary mb-3"></i>
+                            <h5>Adresse</h5>
+                            <p>Rue de la Dombao<br>Moundou, Tchad</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fas fa-phone fs-1 text-primary mb-3"></i>
+                            <h5>Téléphone</h5>
+                            <p>+235 66 47 46 62</p>
+                            <button class="btn btn-primary btn-sm" onclick="window.location.href='tel:+23566474662'">
+                                Appeler
+                            </button>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fas fa-clock fs-1 text-primary mb-3"></i>
+                            <h5>Horaires</h5>
+                            <p>Lun-Dim: 12h-14h30<br>19h-23h30</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h4 class="text-center mb-4">Réservation</h4>
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Nom complet</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Téléphone</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="date" class="form-label">Date souhaitée</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="time" class="form-label">Heure</label>
+                                <select class="form-select" id="time" required>
+                                    <option value="">Choisir une heure</option>
+                                    <option value="12:00">12h00</option>
+                                    <option value="12:30">12h30</option>
+                                    <option value="13:00">13h00</option>
+                                    <option value="13:30">13h30</option>
+                                    <option value="19:00">19h00</option>
+                                    <option value="19:30">19h30</option>
+                                    <option value="20:00">20h00</option>
+                                    <option value="20:30">20h30</option>
+                                    <option value="21:00">21h00</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="guests" class="form-label">Nombre de personnes</label>
+                                <select class="form-select" id="guests" required>
+                                    <option value="">Choisir</option>
+                                    <option value="1">1 personne</option>
+                                    <option value="2">2 personnes</option>
+                                    <option value="3">3 personnes</option>
+                                    <option value="4">4 personnes</option>
+                                    <option value="5">5 personnes</option>
+                                    <option value="6+">6+ personnes</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message (optionnel)</label>
+                                <textarea class="form-control" id="message" rows="3" placeholder="Demandes spéciales, allergies..."></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" onclick="handleReservation(event)">
+                                    <i class="fas fa-calendar-check me-2"></i>Réserver
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-primary">Restaurant Soumara</h5>
+                    <p>Une expérience culinaire authentique dans le cœur de Moundou.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                    <p class="mt-2">&copy; 2024 Restaurant Soumara. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Handle reservation form
+        function handleReservation(event) {
+            event.preventDefault();
+            
+            const form = event.target.closest('form');
+            const formData = new FormData(form);
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const guests = document.getElementById('guests').value;
+            
+            if (name && date && time && guests) {
+                alert(`Merci ${name} ! Votre demande de réservation pour ${guests} personne(s) le ${date} à ${time} a été enregistrée. Nous vous confirmerons par email sous 24h.`);
+                form.reset();
+            } else {
+                alert('Veuillez remplir tous les champs obligatoires.');
+            }
+        }
+
+        // Update navbar on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(44, 24, 16, 0.95)';
+            } else {
+                navbar.style.backgroundColor = '';
+            }
+        });
+
+        // Set minimum date for reservation to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e683b5726b534d',t:'MTc1Nzc1NDY1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
